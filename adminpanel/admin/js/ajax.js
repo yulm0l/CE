@@ -4,8 +4,8 @@ $(document).on("submit","#adminLoginFrm", function(){
       if(data.res == "invalid")
       {
         Swal.fire(
-          'Invalid',
-          'Please input valid username / password',
+          'Incorrecto',
+          'El correo electrónico o contraseña que ingresaste es incorrecto.',
           'error'
         )
       }
@@ -27,8 +27,8 @@ $(document).on("submit","#addCourseFrm" , function(){
   	if(data.res == "exist")
   	{
   		Swal.fire(
-  			'Already Exist',
-  			data.course_name.toUpperCase() + ' Already Exist',
+  			'Ya existe',
+  			data.course_name.toUpperCase() + ' Ya existe',
   			'error'
   		)
   	}
@@ -36,7 +36,7 @@ $(document).on("submit","#addCourseFrm" , function(){
   	{
   		Swal.fire(
   			'Success',
-  			data.course_name.toUpperCase() + ' Successfully Added',
+  			data.course_name.toUpperCase() + ' Agregado exitosamente',
   			'success'
   		)
           // $('#course_name').val("");
@@ -55,8 +55,8 @@ $(document).on("submit","#updateCourseFrm" , function(){
      if(data.res == "success")
      {
         Swal.fire(
-            'Success',
-            'Selected course has been successfully updated!',
+            'Éxito',
+            'Actualizado correctamente!',
             'success'
           )
           refreshDiv();
@@ -80,8 +80,8 @@ $(document).on("click", "#deleteCourse", function(e){
         if(data.res == "success")
         {
           Swal.fire(
-            'Success',
-            'Selected Course successfully deleted',
+            'Éxito',
+            'Borrado correctamente!',
             'success'
           )
           refreshDiv();
@@ -100,36 +100,63 @@ $(document).on("click", "#deleteCourse", function(e){
 
 
 // Delete Exam
-$(document).on("click", "#deleteExam", function(e){
-    e.preventDefault();
-    var id = $(this).data("id");
-     $.ajax({
-      type : "post",
-      url : "query/deleteExamExe.php",
-      dataType : "json",  
-      data : {id:id},
-      cache : false,
-      success : function(data){
-        if(data.res == "success")
-        {
-          Swal.fire(
-            'Success',
-            'Selected Course successfully deleted',
-            'success'
-          )
-          refreshDiv();
-        }
-      },
-      error : function(xhr, ErrorStatus, error){
-        console.log(status.error);
-      }
+$(document).on("click", "#deleteExam", function(e) {
+  var id = $(this).data("id");
+  
+  if (confirm("¿Está seguro de que desea borrar este examen?")) {
+      $.ajax({
+          type: "post",
+          url: "query/deleteExamExe.php",
+          dataType: "json",
+          data: { id: id },
+          cache: false,
+          success: function(data) {
+              if (data.res === "success") {
+                  Swal.fire(
+                      'Éxito',
+                      'Borrado correctamente!',
+                      'success'
+                  );
+                  refreshDiv();
+              }
+          },
+          error: function(xhr, ErrorStatus, error) {
+              console.log(status.error);
+          }
+      });
+  }
 
-    });
-    
-   
+  return false;
+});
+// Delete examinee
+$(document).on("click", "#deleteUser", function(e) {
+  var id = $(this).data("id");
+  
+  if (confirm("¿Está seguro de que desea borrar este examen?")) {
+      $.ajax({
+          type: "post",
+          url: "query/deleteUserExe.php",
+          dataType: "json",
+          data: { id: id },
+          cache: false,
+          success: function(data) {
+              if (data.res === "success") {
+                  Swal.fire(
+                      'Éxito',
+                      'Borrado correctamente!',
+                      'success'
+                  );
+                  refreshDiv();
+              }
+          },
+          error: function(xhr, ErrorStatus, error) {
+              console.log(status.error);
+          }
+      });
+  }
 
-    return false;
-  });
+  return false;
+});
 
 
 
@@ -139,24 +166,24 @@ $(document).on("submit","#addExamFrm" , function(){
     if(data.res == "noSelectedCourse")
    {
       Swal.fire(
-          'No Course',
-          'Please select course',
+          'Vacío',
+          'Por favor selecciona uno',
           'error'
        )
     }
     if(data.res == "noSelectedTime")
    {
       Swal.fire(
-          'No Time Limit',
-          'Please select time limit',
+          'Sin tiempo',
+          'Selecciona el tiempo límite',
           'error'
        )
     }
     if(data.res == "noDisplayLimit")
    {
       Swal.fire(
-          'No Display Limit',
-          'Please input question display limit',
+          'Sin límite de visualización',
+          'Porfavor agrega un ñímite',
           'error'
        )
     }
@@ -164,8 +191,8 @@ $(document).on("submit","#addExamFrm" , function(){
      else if(data.res == "exist")
     {
       Swal.fire(
-        'Already Exist',
-        data.examTitle.toUpperCase() + '<br>Already Exist',
+        'Ya existe',
+        data.examTitle.toUpperCase() + '<br>Ya existe',
         'error'
       )
     }
@@ -173,7 +200,7 @@ $(document).on("submit","#addExamFrm" , function(){
     {
       Swal.fire(
         'Success',
-        data.examTitle.toUpperCase() + '<br>Successfully Added',
+        data.examTitle.toUpperCase() + '<br>Agregado exitosamente',
         'success'
       )
           $('#addExamFrm')[0].reset();
@@ -192,8 +219,8 @@ $(document).on("submit","#updateExamFrm" , function(){
     if(data.res == "success")
     {
       Swal.fire(
-          'Update Successfully',
-          data.msg + ' <br>are now successfully updated',
+          'Actualizado',
+          data.msg + ' <br>Actualizado correctamente',
           'success'
        )
           refreshDiv();
@@ -217,8 +244,8 @@ $(document).on("submit","#updateQuestionFrm" , function(){
      if(data.res == "success")
      {
         Swal.fire(
-            'Success',
-            'Selected question has been successfully updated!',
+            'Éxito',
+            'Pregunta actualizada correctamente!',
             'success'
           )
           refreshDiv();
@@ -229,37 +256,34 @@ $(document).on("submit","#updateQuestionFrm" , function(){
 
 
 // Delete Question
-$(document).on("click", "#deleteQuestion", function(e){
-    e.preventDefault();
-    var id = $(this).data("id");
-     $.ajax({
-      type : "post",
-      url : "query/deleteQuestionExe.php",
-      dataType : "json",  
-      data : {id:id},
-      cache : false,
-      success : function(data){
-        if(data.res == "success")
-        {
+$(document).on("click", "#deleteQuestion", function(e) {
+  e.preventDefault();
+  var id = $(this).data("id");
+
+  if (confirm('¿Estás seguro de que deseas eliminar esta pregunta?')) {
+    $.ajax({
+      type: "post",
+      url: "query/deleteQuestionExe.php",
+      dataType: "json",
+      data: { id: id },
+      cache: false,
+      success: function(data) {
+        if (data.res == "success") {
           Swal.fire(
-            'Deleted Success',
-            'Selected question successfully deleted',
+            'Eliminado',
+            'Pregunta eliminada correctamente',
             'success'
-          )
+          );
           refreshDiv();
         }
       },
-      error : function(xhr, ErrorStatus, error){
+      error: function(xhr, ErrorStatus, error) {
         console.log(status.error);
       }
-
     });
-    
-   
-
-    return false;
-  });
-
+  }
+  return false;
+});
 
 // Add Question 
 $(document).on("submit","#addQuestionFrm" , function(){
@@ -267,16 +291,16 @@ $(document).on("submit","#addQuestionFrm" , function(){
     if(data.res == "exist")
     {
       Swal.fire(
-          'Already Exist',
-          data.msg + ' question <br>already exist in this exam',
+          'Ya existe',
+          data.msg + ' La pregunta  <br>ya existe',
           'error'
        )
     }
     else if(data.res == "success")
     {
       Swal.fire(
-        'Success',
-         data.msg + ' question <br>Successfully added',
+        'Éxito',
+         data.msg + ' pregunta <br>Agregado exitosamente',
         'success'
       )
         $('#addQuestionFrm')[0].reset();
@@ -294,16 +318,16 @@ $(document).on("submit","#addExamineeFrm" , function(){
     if(data.res == "noGender")
     {
       Swal.fire(
-          'No Gender',
-          'Please select gender',
+          'Sin género',
+          'Selecciona un género',
           'error'
        )
     }
     else if(data.res == "noCourse")
     {
       Swal.fire(
-          'No Course',
-          'Please select course',
+          'Vacío',
+          'Selecciona uno',
           'error'
        )
     }
@@ -318,8 +342,77 @@ $(document).on("submit","#addExamineeFrm" , function(){
     else if(data.res == "fullnameExist")
     {
       Swal.fire(
-          'Fullname Already Exist',
-          data.msg + ' are already exist',
+          'Nombre existente',
+          data.msg + ' ya existe',
+          'error'
+       )
+    }
+    else if(data.res == "emailExist")
+    {
+      Swal.fire(
+          'Correo existente',
+          data.msg + ' ya existe',
+          'error'
+       )
+    }
+    else if(data.res == "success")
+    {
+      Swal.fire(
+          'Éxito',
+          data.msg + ' Agregado exitosamente',
+          'success'
+       )
+        refreshDiv();
+        $('#addExamineeFrm')[0].reset();
+    }
+    else if(data.res == "failed")
+    {
+      Swal.fire(
+          "Something's Went Wrong",
+          '',
+          'error'
+       )
+    }
+
+
+    
+  },'json')
+  return false;
+});
+
+
+// Add Examinee
+$(document).on("submit","#addExamineeFrm" , function(){
+  $.post("query/addExaminee.php", $(this).serialize() , function(data){
+    if(data.res == "noGender")
+    {
+      Swal.fire(
+          'Si género',
+          'Selecciona un género',
+          'error'
+       )
+    }
+    else if(data.res == "noCourse")
+    {
+      Swal.fire(
+          'Sin nivel',
+          'Selecciona un nivel',
+          'error'
+       )
+    }
+    // else if(data.res == "noLevel")
+    // {
+    //   Swal.fire(
+    //       'No Year Level',
+    //       'Please select year level',
+    //       'error'
+    //    )
+    // }
+    else if(data.res == "fullnameExist")
+    {
+      Swal.fire(
+          'Nombre existente',
+          data.msg + ' ya existe',
           'error'
        )
     }
@@ -327,15 +420,15 @@ $(document).on("submit","#addExamineeFrm" , function(){
     {
       Swal.fire(
           'Email Already Exist',
-          data.msg + ' are already exist',
+          data.msg + ' ya existe',
           'error'
        )
     }
     else if(data.res == "success")
     {
       Swal.fire(
-          'Success',
-          data.msg + ' are now successfully added',
+          'Éxito',
+          data.msg + ' Agregado exitosamente',
           'success'
        )
         refreshDiv();
@@ -358,14 +451,15 @@ $(document).on("submit","#addExamineeFrm" , function(){
 
 
 
+
 // Update Examinee
 $(document).on("submit","#updateExamineeFrm" , function(){
   $.post("query/updateExamineeExe.php", $(this).serialize() , function(data){
      if(data.res == "success")
      {
         Swal.fire(
-            'Success',
-            data.exFullname + ' <br>has been successfully updated!',
+            'Éxito',
+            data.exFullname + ' <br>actualizado correctamente!',
             'success'
           )
           refreshDiv();
@@ -374,6 +468,21 @@ $(document).on("submit","#updateExamineeFrm" , function(){
   return false;
 });
 
+// Update Examinee
+$(document).on("submit","#updateExamineeFrm" , function(){
+  $.post("query/updateExaminee.php", $(this).serialize() , function(data){
+     if(data.res == "success")
+     {
+        Swal.fire(
+            'Éxito',
+            data.exFullname + ' <br>actualizado correctamente!',
+            'success'
+          )
+          refreshDiv();
+     }
+  },'json')
+  return false;
+});
 
 function refreshDiv()
 {

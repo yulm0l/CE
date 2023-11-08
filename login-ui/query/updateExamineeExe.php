@@ -1,5 +1,5 @@
 <?php
- include("../../../conn.php");
+ include("../conn.php");
  extract($_POST);
 
 
@@ -15,6 +15,5 @@ else
 
 
 
- echo json_encode($res);
-	
+ echo json_encode($res);	
 ?>

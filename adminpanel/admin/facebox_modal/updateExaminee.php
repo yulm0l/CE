@@ -47,33 +47,49 @@
             ?>
          </select>
      </div>
-
-     <!-- <div class="form-group">
-        <legend>Year level</legend>
-        <input type="" name="exYrlvl" class="form-control" required="" value="<?php echo $selExmne['exmne_year_level']; ?>" >
-     </div> -->
-
      <div class="form-group">
         <legend>Correo</legend>
         <input type="" name="exEmail" class="form-control" required="" value="<?php echo $selExmne['exmne_email']; ?>" >
      </div>
 
-     <div class="form-group">
-        <legend>Contraseña</legend>
-        <input type="" name="exPass" class="form-control" required="" value="<?php echo $selExmne['exmne_password']; ?>" >
-     </div>
+      <?php
+         $hashedPassword = password_hash($selExmne['exmne_password'], PASSWORD_DEFAULT);
+         ?>
 
-     <div class="form-group">
-        <legend>Status</legend>
-        <input type="hidden" name="course_id" value="<?php echo $id; ?>">
-        <input type="" name="newCourseName" class="form-control" required="" value="<?php echo $selExmne['exmne_status']; ?>" >
-     </div>
-  <div class="form-group" align="right">
-    <button type="submit" class="btn btn-sm btn-primary">Actualizar</button>
-  </div>
-</form>
-  </div>
-</fieldset>
+         <div class="form-group">
+            <legend>Contraseña</legend>
+            <input type="password" name="exPass" class="form-control" required="" value="<?php echo $hashedPassword; ?>">
+         </div>
+
+
+            <div class="form-group">
+               <legend>Status</legend>
+               <input type="hidden" name="course_id" value="<?php echo $id; ?>">
+               <input type="" name="newCourseName" class="form-control" required="" value="<?php echo $selExmne['exmne_status']; ?>" >
+            </div>
+         <div class="form-group" align="right">
+            <button type="submit" class="btn btn-sm btn-primary" id="success">Actualizar</button>
+         </div>
+         </form>
+         </div>
+         </fieldset>
+      <script>
+            document.getElementById("success").addEventListener("click", function() {
+                  Swal.fire({
+                     title: "¿Estás seguro?",
+                     text: "¿Quieres guardar cambios?",
+                     icon: "warning",
+                     showCancelButton: true,
+                     confirmButtonText: "Sí",
+                     cancelButtonText: "Cancelar"
+                  }).then((result) => {
+                     if (result.isConfirmed) {
+                        window.location.href =  "pages/home.php";
+                     }
+                  });
+            });
+         </script>
+    
 
 
 

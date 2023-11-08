@@ -126,8 +126,8 @@ if(!isset($_SESSION['admin']['adminnakalogin']) == true) header("location:index.
                                     <table class="align-middle mb-0 table table-borderless table-striped table-hover" id="tableList">
                                         <thead>
                                         <tr>
-                                            <th class="text-left pl-1">Course Name</th>
-                                            <th class="text-center" width="20%">Action</th>
+                                            <th class="text-left pl-1">Preguntas</th>
+                                            <th class="text-center" width="20%">Acción</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -185,7 +185,6 @@ if(!isset($_SESSION['admin']['adminnakalogin']) == true) header("location:index.
                                                             
                                                         </td>
                                                         <td class="text-center">
-                                                         <a rel="facebox" href="facebox_modal/updateQuestion.php?id=<?php echo $selQuestionRow['eqt_id']; ?>" class="btn btn-sm btn-primary">Actualizar</a>
                                                          <button type="button" id="deleteQuestion" data-id='<?php echo $selQuestionRow['eqt_id']; ?>'  class="btn btn-danger btn-sm">Borar</button>
                                                         </td>
                                                     </tr>

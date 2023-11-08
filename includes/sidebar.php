@@ -75,7 +75,7 @@
                 </li>
 
                  <li class="app-sidebar__heading">Quizzes hechos</li>
-                 <li>
+                 <li > 
     <?php 
     $selTakenExam = $conn->query("
         SELECT et.ex_id, et.ex_title
@@ -98,17 +98,16 @@
     }
     ?>
 </li>
-
-
-
                 <li class="app-sidebar__heading">Comentarios+</li>
                 <li>
                     <a href="#" data-toggle="modal" data-target="#feedbacksModal" >
                         Agrega tu comentario                     
                     </a>
                 </li>
-                
             </ul>
         </div>
     </div>
 </div>  
+<style>
+    
+</style>

@@ -22,18 +22,7 @@
 <body id="body">
     <div class="app-container app-theme-white body-tabs-shadow fixed-sidebar fixed-header">
         <div class="app-header header-shadow">
-            <div>
-                <div class="logo-src"></div>
-                <div class="header__pane ml-auto">
-                    <div>
-                        <button type="button" class="hamburger close-sidebar-btn hamburger--elastic" data-class="closed-sidebar">
-                            <span class="hamburger-box">
-                                <span class="hamburger-inner"></span>
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </div>
+        <h2>__Control escolar</h2>
             <div class="app-header__mobile-menu">
                 <div>
                     <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
@@ -51,10 +40,9 @@
                         </span>
                     </button>
                 </span>
-            </div>    <div class="app-header__content">
-                <div class="app-header-left">
-                   
-                          </div>
+            </div>    
+            <div class="app-header__content">
+                <div class="app-header-left"></div>
                 <div class="app-header-right">
                     <div class="header-btn-lg pr-0">
                         <div class="widget-content p-0">
@@ -66,7 +54,6 @@
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
                                         <div tabindex="-1" role="menu" aria-hidden="true" class="dropdown-menu dropdown-menu-right">
-                                            <button type="button" tabindex="0" class="dropdown-item">Cuenta</button>
                                             <div tabindex="-1" class="dropdown-divider"></div>
                                             <a href="query/logoutExe.php" class="dropdown-item">Cerrar sesión</a>
                                         </div>
@@ -74,6 +61,24 @@
                                 </div>
                             </div>
                         </div>
-                    </div>        </div>
+                    </div>        
+                </div>
             </div>
         </div>  
+    
+        <!DOCTYPE html>
+    <style>
+        /* Cambiar el color del texto a azul */
+        h2 {
+            color: #ffa400;
+            
+        }
+
+        /* Cambiar el tipo de fuente y el tamaño del texto */
+        h2 {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+        }
+    </style>
+
+

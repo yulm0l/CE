@@ -4,14 +4,15 @@
             <div class="app-page-title">
                 <div class="page-title-wrapper">
                     <div class="page-title-heading">
-                        <div>Administrar nivel</div>
+                        <h2>ADMINISTRAR NIVEL</h2>
                     </div>
                 </div>
             </div>        
             
             <div class="col-md-12">
                 <div class="main-card mb-3 card">
-                    <div class="card-header">Lista
+                    <div class="card-header">
+                        <h2>Lista</h2>
                     </div>
                     <div class="table-responsive">
                         <table class="align-middle mb-0 table table-borderless table-striped table-hover" id="tableList">

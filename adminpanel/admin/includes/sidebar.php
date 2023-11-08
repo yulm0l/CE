@@ -124,3 +124,60 @@
                         </div>
                     </div>
                 </div>  
+
+
+<style>
+.app-sidebars {
+    background: #009ffd; 
+    color: #232528; 
+    width: 250px; 
+}
+
+.app-sidebar__heading {
+    color: #232528; 
+    font-weight: bold;
+    padding: auto;
+}
+
+.vertical-nav-menu li {
+    list-style: none;
+    margin: auto;
+    padding: auto;
+}
+
+.vertical-nav-menu a {
+    color: #232528; 
+    text-decoration: none;
+    display: block;
+    padding: auto;
+    transition: background 0.3s;
+}
+
+.vertical-nav-menu a:hover {
+    background: #232528; 
+}
+
+.metismenu-icon {
+    margin-right: 5px;
+    font-size: 5px;
+}
+
+
+
+.scrollbar-sidebar {
+    max-height: 80vh; 
+    overflow-y: auto;
+}
+
+.hamburger {
+    background: transparent;
+    border: none;
+    margin-right: auto;
+    cursor: pointer;
+}
+
+.hamburger:hover {
+    background: transparent;
+}
+
+</style>

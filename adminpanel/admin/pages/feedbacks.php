@@ -3,22 +3,23 @@
                 <div class="app-page-title">
                 <div class="page-title-wrapper">
                     <div class="page-title-heading">
-                        <div><b>RANKING BY EXAM</b></div>
+                        <div><b><h2>COMENTARIOS</h2></b></div>
                     </div>
                 </div>
                 </div> 
 
                  <div class="col-md-12">
                 <div class="main-card mb-3 card">
-                    <div class="card-header">Feedback's List
+                    <div class="card-header">
+                        <h2>Lista de comentarios</h2>
                     </div>
                     <div class="table-responsive">
                         <table class="align-middle mb-0 table table-borderless table-striped table-hover" id="tableList">
                             <thead>
                             <tr>
-                                <th class="text-left pl-4" width="20%">Examinee</th>
-                                <th class="text-left ">Feedbacks</th>
-                                <th class="text-center" width="15%">Date</th>
+                                <th class="text-left pl-4" width="20%">Estudiante</th>
+                                <th class="text-left ">Retroalimentación</th>
+                                <th class="text-center" width="15%">Fecha</th>
                             </tr>
                             </thead>
                             <tbody>

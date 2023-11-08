@@ -1,14 +1,17 @@
+$(function(){
+	$('a[rel*=facebox]').facebox();
+});
 
 $(document).on("click","#startQuiz", function(){
 	  var thisId = $(this).data('id');
 	  Swal.fire({
-      title: 'Are you sure?',
-      text: 'You want to take this exam now, your time will start automaticaly',
+      title: '¿Estás seguro?',
+      text: 'Tu tiempo empezará a correr',
       icon: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, start now!'
+      confirmButtonText: 'Sí, !iniciar ahora!'
  }).then((result) => {
   if (result.value) {
          $.ajax({
@@ -21,8 +24,8 @@ $(document).on("click","#startQuiz", function(){
             if(data.res == "a")
             {
               Swal.fire(
-                'Already Taken ',
-                'you already take this exam',
+                'Ya realizaste el quiz ',
+                'quiz realizado',
                 'error'
               )
             }

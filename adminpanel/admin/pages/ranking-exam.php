@@ -20,16 +20,17 @@
                    ?>
                    <div class="app-page-title">
                     <div class="page-title-wrapper">
-                        <div class="page-title-heading">
-                            <div><b class="text-primary">RANKING POR EXAMEN</b><br>
-                                Exam Name : <?php echo $selEx['ex_title']; ?><br><br>
-                               <span class="border" style="padding:10px;color:black;background-color: yellow;">Excellence</span>
-                               <span class="border" style="padding:10px;color:white;background-color: green;">Very Good</span>
-                               <span class="border" style="padding:10px;color:white;background-color: blue;">Good</span>
-                               <span class="border" style="padding:10px;color:white;background-color: red;">Failed</span>
-                               <span class="border" style="padding:10px;color:black;background-color: #E9ECEE;">Not Answering</span>
-                            </div>
-                        </div>
+                    <button type="submit" class="styled-button">Ver Ranking</button>
+                <div class="page-title-heading" id="ranking-content" style="display: none;">
+                       <div>
+                        Quiz/Examen: <?php echo $selEx['ex_title']; ?><br><br>
+                        <span class="border" style="padding: 10px; color: black; background-color: yellow;">Excelente</span>
+                        <span class="border" style="padding: 10px; color: white; background-color: green;">Muy Bien</span>
+                        <span class="border" style="padding: 10px; color: white; background-color: blue;">Bien</span>
+                        <span class="border" style="padding: 10px; color: white; background-color: red;">Reprobado</span>
+                        <span class="border" style="padding: 10px; color: black; background-color: #E9ECEE;">Sin responder</span>
+                       </div>
+                  </div>
                     </div>
                     </div>
                     <div class="table-responsive">
@@ -37,9 +38,9 @@
                           <tbody>
                             <thead>
                                 <tr>
-                                    <th width="25%">Examinee Fullname</th>
-                                    <th>Score / Over</th>
-                                    <th>Percentage</th>
+                                    <th width="25%">Nombre</th>
+                                    <th>Nota</th>
+                                    <th>Porcentaje</th>
                                 </tr>
                             </thead>
                             <?php 
@@ -88,7 +89,7 @@
                                         <?php 
                                           if($selAttempt->rowCount() == 0)
                                           {
-                                            echo "Not answer yet";
+                                            echo "Aún no ha respondido";
                                           }
                                           else if($selScore->rowCount() > 0)
                                           {
@@ -112,7 +113,7 @@
                                           <?php 
                                                 if($selAttempt->rowCount() == 0)
                                                 {
-                                                  echo "Not answer yet";
+                                                  echo "Aún no ha respondido";
                                                 }
                                                 else
                                                 {
@@ -204,7 +205,11 @@
       
         
 </div>
-         
+<script>
+    document.querySelector(".styled-button").addEventListener("click", function() {
+        document.getElementById("ranking-content").style.display = "block";
+    });
+</script>
 
 
 

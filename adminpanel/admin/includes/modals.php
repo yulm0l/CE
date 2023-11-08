@@ -1,3 +1,5 @@
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@12"></script>
+
 <!-- Modal For Add Course -->
 <div class="modal fade" id="modalForAddCourse" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -13,7 +15,7 @@
         <div class="col-md-12">
           <div class="form-group">
             <label>Nivel</label>
-            <input type="" name="course_name" id="course_name" class="form-control" placeholder=" " required="" autocomplete="off">
+            <input type="" name="course_name" id="course_name" class="form-control" placeholder=" " required autocomplete="off">
           </div>
         </div>
       </div>
@@ -145,14 +147,14 @@
         <div class="col-md-12">
           <div class="form-group">
             <label>Nombre completo</label>
-            <input type="" name="fullname" id="fullname" class="form-control" placeholder="Fátima López Pérez" autocomplete="off" required="">
+            <input type="" name="fullname" id="fullname" class="form-control" placeholder="Fátima López Pérez" autocomplete="off" required>
           </div>
           <div class="form-group">
             <label>Fecha de nacimiento</label>
-            <input type="date" name="bdate" id="bdate" class="form-control" placeholder="Fecha" autocomplete="off" >
+            <input type="date" name="bdate" id="bdate" class="form-control" placeholder="Fecha" required autocomplete="off" >
           </div>
           <div class="form-group">
-            <label>Gender</label>
+            <label>Género</label>
             <select class="form-control" name="gender" id="gender">
               <option value="0">Selecciona tu género</option>
               <option value="hombre">Hombre</option>
@@ -171,29 +173,19 @@
                ?>
             </select>
           </div>
-          <!-- <div class="form-group">
-            <label>Año</label>
-            <select class="form-control" name="year_level" id="year_level">
-              <option value="0">Selecciona</option>
-              <option value="first year">First Year</option>
-              <option value="second year">Second Year</option>
-              <option value="third year">Third Year</option>
-              <option value="fourth year">Fourth Year</option>
-            </select>
-          </div> -->
           <div class="form-group">
             <label>Correo electrónico</label>
-            <input type="email" name="email" id="email" class="form-control" placeholder="you@example.com" autocomplete="off" required="">
+            <input type="email" name="email" id="email" class="form-control" placeholder="you@example.com" autocomplete="off" required>
           </div>
           <div class="form-group">
             <label>Contraseña</label>
-            <input type="password" name="password" id="password" class="form-control" placeholder="*******" autocomplete="off" required="">
+            <input type="password" name="password" id="password" class="form-control" placeholder="*******" autocomplete="off" required>
           </div>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button type="submit" class="btn btn-primary">Agregar</button>
+        <button type="submit" onClick="exito()"class="btn btn-primary">Guardar</button>
       </div>
     </div>
    </form>
@@ -246,17 +238,29 @@
 
             <div class="form-group">
                 <label>Respuesta correcta</label>
-                <input type="" name="correctAnswer" id="" class="form-control" placeholder="Ej: A" autocomplete="off">
+                <input type="" name="correctAnswer" id="" class="form-control" placeholder="Vuelva a escribir la respuesta correcta tal cual lo escribió en la opción" autocomplete="off">
             </div>
           </fieldset>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Add Now</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button type="submit" class="btn btn-primary">Agregar</button>
       </div>
       </form>
     </div>
    </form>
   </div>
 </div>
+
+<script>
+function exito() {
+
+swal({
+  title: 'Éxito',
+  text: 'Guardado correctamente',
+  type: 'success',
+  timer: 3000,
+});
+}
+</script>
